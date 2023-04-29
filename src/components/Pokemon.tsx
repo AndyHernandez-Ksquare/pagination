@@ -3,12 +3,14 @@ import PokemonTypes from "./PokemonTypes";
 import "./Pokemon.css";
 
 type Props = {
-  name: string;
+  name?: string;
   url: string;
+  searchValue?: string | number;
+  searchURL?: string;
 };
 
-const Pokemon = ({ name, url }: Props) => {
-  const { order, sprite, types, generation, height, weight } =
+const Pokemon = ({ url, searchValue, searchURL }: Props) => {
+  const { order, sprite, types, generation, height, weight, name } =
     useFetchPokemonDetails(url);
   // console.log(generation);
   return (

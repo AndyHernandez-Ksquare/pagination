@@ -21,6 +21,7 @@ export interface IPokemonDetails {
     front_default: string;
     versions: {};
   };
+  forms: { name: string }[];
   types: IPokeType[];
   height: number;
   weight: number;

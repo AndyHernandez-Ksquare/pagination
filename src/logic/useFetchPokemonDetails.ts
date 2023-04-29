@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { IPokemonDetails } from "../interfaces";
 
-const useFetchPokemonDetails = (URL: string) => {
+const useFetchPokemonDetails = (URL: string, useSearchBarValue?: string) => {
   const [order, setOrder] = useState(0);
   const [sprite, setSprite] = useState("");
   const [types, setTypes] = useState<string[]>([]);
   const [generation, setGeneration] = useState<any>();
   const [height, setHeight] = useState<number>();
   const [weight, setWeight] = useState<number>();
+  const [name, setName] = useState<string>();
 
   useEffect(() => {
     const fn = async () => {
@@ -23,11 +24,12 @@ const useFetchPokemonDetails = (URL: string) => {
       setGeneration(versionFirstKey);
       setHeight(data.height);
       setWeight(data.weight);
+      setName(data.forms[0].name);
     };
     fn().catch(console.error);
   }, [URL]);
 
-  return { order, sprite, types, generation, height, weight };
+  return { order, sprite, types, generation, height, weight, name };
 };
 
 export default useFetchPokemonDetails;
