@@ -11,7 +11,7 @@ const useFetchPokemonsByType = () => {
       const data: ITypeDetails = await req.json();
 
       const mappedData = data.pokemon.map((value) => value.pokemon);
-      setPokemonByType(mappedData.slice(0, 10));
+      setPokemonByType(mappedData.slice(0, 9));
     };
     if (selectedType) {
       fn().catch(console.error);

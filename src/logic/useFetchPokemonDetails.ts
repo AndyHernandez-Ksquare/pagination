@@ -5,6 +5,9 @@ const useFetchPokemonDetails = (URL: string) => {
   const [order, setOrder] = useState(0);
   const [sprite, setSprite] = useState("");
   const [types, setTypes] = useState<string[]>([]);
+  const [generation, setGeneration] = useState<any>();
+  const [height, setHeight] = useState<number>();
+  const [weight, setWeight] = useState<number>();
 
   useEffect(() => {
     const fn = async () => {
@@ -16,11 +19,15 @@ const useFetchPokemonDetails = (URL: string) => {
       const originalData = data.types;
       const newData = originalData.map(({ type }) => type.name);
       setTypes(newData);
+      const versionFirstKey = Object.keys(data.sprites.versions)[0];
+      setGeneration(versionFirstKey);
+      setHeight(data.height);
+      setWeight(data.weight);
     };
     fn().catch(console.error);
   }, [URL]);
 
-  return { order, sprite, types };
+  return { order, sprite, types, generation, height, weight };
 };
 
 export default useFetchPokemonDetails;
