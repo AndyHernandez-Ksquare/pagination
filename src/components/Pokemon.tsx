@@ -1,5 +1,6 @@
 import useFetchPokemonDetails from "../logic/useFetchPokemonDetails";
 import PokemonTypes from "./PokemonTypes";
+import "./Pokemon.css";
 
 type Props = {
   name: string;
@@ -9,7 +10,7 @@ type Props = {
 const Pokemon = ({ name, url }: Props) => {
   const { order, sprite, types, generation, height, weight } =
     useFetchPokemonDetails(url);
-  console.log(generation);
+  // console.log(generation);
   return (
     <section style={{ width: 250, height: 200, backgroundColor: "#ccc" }}>
       <h5 style={{ marginBottom: 0 }}>{name}</h5>
