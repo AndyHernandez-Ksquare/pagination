@@ -19,8 +19,11 @@ export interface IPokemonDetails {
   order: number;
   sprites: {
     front_default: string;
+    versions: {};
   };
   types: IPokeType[];
+  height: number;
+  weight: number;
 }
 
 export interface IIdAndName {

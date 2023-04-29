@@ -10,7 +10,7 @@ const useFetchPokemon = () => {
 
     const data: IListResults<IInfoPokemon> = await req.json();
 
-    return setPokemon(data.results.slice(0, 10));
+    return setPokemon(data.results.slice(0, 9));
   };
 
   useEffect(() => {
