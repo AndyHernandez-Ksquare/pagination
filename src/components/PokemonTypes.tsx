@@ -1,4 +1,5 @@
 import React from "react";
+import "./Pokemon.css";
 
 type Props = { types: string[] };
 
@@ -14,7 +15,9 @@ const PokemonTypes = ({ types }: Props) => {
       }}
     >
       {types.map((value) => (
-        <li key={value}>{value}</li>
+        <li className={`${value}`} key={value}>
+          {value}
+        </li>
       ))}
     </ul>
   );
