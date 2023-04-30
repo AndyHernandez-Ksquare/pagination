@@ -1,19 +1,27 @@
 import React from "react";
 import "./App.css";
-import useFetchPokemon from "./logic/useFetchPokemon";
 import Pokedex from "./components/Pokedex";
 import useFetchTypes from "./logic/useFetchTypes";
 import useFetchPokemonsByType from "./logic/useFetchPokemonsByType";
 import useFetchSearchBar from "./logic/useFetchSearchBar";
 import Pokemon from "./components/Pokemon";
+import usePagination from "./logic/usePagination";
 
 function App() {
-  const { pokemon } = useFetchPokemon();
   const { types } = useFetchTypes();
   const { selectedType, pokemonByType, setSelectedType } =
     useFetchPokemonsByType();
   const { searchBarValue, setSearchBarValue, searchURL, setSearchURL } =
     useFetchSearchBar();
+  const {
+    pokemons,
+    currentPage,
+    totalPages,
+    displayPages,
+    goToPage,
+    goToNextPage,
+    goToPreviousPage,
+  } = usePagination();
 
   console.log(searchURL);
 
@@ -50,13 +58,25 @@ function App() {
         <Pokedex
           searchURL={searchURL}
           searchValue={searchBarValue}
-          pokemon={pokemon}
+          pokemon={pokemons}
+          displayPages={displayPages}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          goToPage={goToPage}
+          goToNextPage={goToNextPage}
+          goToPreviousPage={goToPreviousPage}
         />
       ) : (
         <Pokedex
           searchURL={searchURL}
           searchValue={searchBarValue}
           pokemon={pokemonByType}
+          displayPages={displayPages}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          goToPage={goToPage}
+          goToNextPage={goToNextPage}
+          goToPreviousPage={goToPreviousPage}
         />
       )}
       {searchBarValue && <Pokemon name="test" url={searchURL}></Pokemon>}
