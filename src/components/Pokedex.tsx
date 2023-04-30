@@ -1,5 +1,6 @@
 import { IInfoPokemon } from "../interfaces";
 import Pokemon from "./Pokemon";
+import "../Pokedex.css";
 
 type Props = {
   pokemon: IInfoPokemon[];
@@ -41,19 +42,27 @@ const Pokedex = ({
       {list}
       {totalPages > 1 && (
         <div className="pagination">
-          <button onClick={goToPreviousPage}>Prev</button>
-          {displayPages.map((page) => (
-            <button
-              key={page}
-              onClick={() => {
-                goToPage(page);
-              }}
-              className={currentPage === page ? "active" : ""}
-            >
-              {page}
-            </button>
-          ))}
-          <button onClick={goToNextPage}>Next</button>
+          <button className="pages" onClick={goToPreviousPage}>
+            {"<<"}
+          </button>
+          {displayPages.map((page) => {
+            const isActiveClass = currentPage === page ? "active" : "";
+
+            return (
+              <button
+                key={page}
+                onClick={() => {
+                  goToPage(page);
+                }}
+                className={`${isActiveClass} pages`}
+              >
+                {page}
+              </button>
+            );
+          })}
+          <button className="pages" onClick={goToNextPage}>
+            {">>"}
+          </button>
         </div>
       )}
     </section>

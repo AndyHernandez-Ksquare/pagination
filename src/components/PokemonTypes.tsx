@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pokemon.css";
+import "../Pokemon.css";
 
 type Props = { types: string[] };
 

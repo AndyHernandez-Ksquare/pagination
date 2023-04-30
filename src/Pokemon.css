@@ -1,3 +1,18 @@
+.pokemon-container {
+  width: 250px;
+  height: 200px;
+  background-color: #ccc;
+}
+
+h5 {
+  margin-bottom: 0;
+}
+
+span {
+  font-size: 12px;
+}
+
+/* Spans */
 span {
   border: 2px solid black;
   border-radius: 5px;
