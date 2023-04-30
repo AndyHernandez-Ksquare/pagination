@@ -54,6 +54,8 @@ function App() {
         />
         <button type="submit">Search by name or id</button>
       </form>
+      {searchBarValue && <Pokemon name="test" url={searchURL}></Pokemon>}
+
       {!selectedType ? (
         <Pokedex
           searchURL={searchURL}
@@ -79,7 +81,6 @@ function App() {
           goToPreviousPage={goToPreviousPage}
         />
       )}
-      {searchBarValue && <Pokemon name="test" url={searchURL}></Pokemon>}
     </section>
   );
 }
