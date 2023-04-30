@@ -35,3 +35,13 @@ export interface IIdAndName {
 export interface ITypeDetails {
   pokemon: { pokemon: IInfoPokemon; slot: number }[];
 }
+
+export interface Pagination {
+  pokemons: IInfoPokemon[];
+  currentPage: number;
+  totalPages: number;
+  displayPages: number[];
+  goToPage: (page: number) => void;
+  goToNextPage: () => void;
+  goToPreviousPage: () => void;
+}
