@@ -11,8 +11,13 @@ function App() {
   const { types } = useFetchTypes();
   const { selectedType, pokemonByType, setSelectedType } =
     useFetchPokemonsByType();
-  const { searchBarValue, setSearchBarValue, searchURL, setSearchURL } =
-    useFetchSearchBar();
+  const {
+    searchBarValue,
+    setSearchBarValue,
+    searchURL,
+    setSearchURL,
+    notFound,
+  } = useFetchSearchBar();
   const {
     pokemons,
     currentPage,
@@ -52,7 +57,9 @@ function App() {
           }}
         />
       </form>
-      {searchBarValue && <Pokemon name="test" url={searchURL}></Pokemon>}
+      {searchBarValue && !notFound && (
+        <Pokemon name="test" url={searchURL}></Pokemon>
+      )}
 
       {!selectedType ? (
         <Pokedex
@@ -71,12 +78,6 @@ function App() {
           searchURL={searchURL}
           searchValue={searchBarValue}
           pokemon={pokemonByType}
-          // displayPages={displayPages}
-          // currentPage={currentPage}
-          // totalPages={totalPages}
-          // goToPage={goToPage}
-          // goToNextPage={goToNextPage}
-          // goToPreviousPage={goToPreviousPage}
         />
       )}
     </section>
