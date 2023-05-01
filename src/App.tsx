@@ -23,8 +23,6 @@ function App() {
     goToPreviousPage,
   } = usePagination();
 
-  console.log(searchURL);
-
   const list = types.map((value) => (
     <option value={value.url} key={value.name}>
       {value.name.toUpperCase()}
@@ -39,20 +37,20 @@ function App() {
           onChange={(e) => {
             setSelectedType(e.target.value);
           }}
-          name=""
-          id=""
+          name="Type selection"
+          id="typeSelection"
         >
           <option value="">Select a type</option>
           {list}
         </select>
         <input
+          placeholder="Search by name or id"
+          value={searchBarValue}
           onChange={(e) => {
-            e.preventDefault();
             setSearchBarValue(() => e.target.value);
             setSearchURL(`https://pokeapi.co/api/v2/pokemon/${e.target.value}`);
           }}
         />
-        <button type="submit">Search by name or id</button>
       </form>
       {searchBarValue && <Pokemon name="test" url={searchURL}></Pokemon>}
 
@@ -73,12 +71,12 @@ function App() {
           searchURL={searchURL}
           searchValue={searchBarValue}
           pokemon={pokemonByType}
-          displayPages={displayPages}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          goToPage={goToPage}
-          goToNextPage={goToNextPage}
-          goToPreviousPage={goToPreviousPage}
+          // displayPages={displayPages}
+          // currentPage={currentPage}
+          // totalPages={totalPages}
+          // goToPage={goToPage}
+          // goToNextPage={goToNextPage}
+          // goToPreviousPage={goToPreviousPage}
         />
       )}
     </section>

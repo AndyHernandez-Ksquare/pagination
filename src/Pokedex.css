@@ -2,23 +2,23 @@
   position: sticky;
   top: 95%;
   left: 40%;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* width: 40rem; */
 }
-
-/* .pagePrev {
-  } */
 
 .pages {
   margin: 0 0.1rem;
-  padding: 2px 8px;
   border: none;
-  background-color: white;
+  background-color: none;
+  background: none;
+  color: white;
+}
+
+.pages:hover {
+  cursor: pointer;
 }
 .active {
   background-color: #4daf50;
   color: white;
-  /* margin: 0 0.2rem; */
+  border-radius: 5px;
+  padding: 3px 10px;
+  border: 1px solid white;
 }
