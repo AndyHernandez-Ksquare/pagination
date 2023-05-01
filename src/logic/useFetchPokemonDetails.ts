@@ -5,7 +5,7 @@ const useFetchPokemonDetails = (URL: string, useSearchBarValue?: string) => {
   const [order, setOrder] = useState(0);
   const [sprite, setSprite] = useState("");
   const [types, setTypes] = useState<string[]>([]);
-  const [generation, setGeneration] = useState<any>();
+  const [generation, setGeneration] = useState<string>();
   const [height, setHeight] = useState<number>();
   const [weight, setWeight] = useState<number>();
   const [name, setName] = useState<string>();
