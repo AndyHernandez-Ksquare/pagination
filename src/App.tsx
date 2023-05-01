@@ -62,23 +62,34 @@ function App() {
       )}
 
       {!selectedType ? (
-        <Pokedex
-          searchURL={searchURL}
-          searchValue={searchBarValue}
-          pokemon={pokemons}
-          displayPages={displayPages}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          goToPage={goToPage}
-          goToNextPage={goToNextPage}
-          goToPreviousPage={goToPreviousPage}
-        />
+        <Pokedex pokemon={pokemons} />
       ) : (
-        <Pokedex
-          searchURL={searchURL}
-          searchValue={searchBarValue}
-          pokemon={pokemonByType}
-        />
+        <Pokedex pokemon={pokemonByType} />
+      )}
+      {totalPages! > 1 && (
+        <div className="pagination">
+          <button className="pages" onClick={goToPreviousPage}>
+            {"<<"}
+          </button>
+          {displayPages!.map((page) => {
+            const isActiveClass = currentPage === page ? "active" : "";
+
+            return (
+              <button
+                key={page}
+                onClick={() => {
+                  goToPage!(page);
+                }}
+                className={`${isActiveClass} pages`}
+              >
+                {page}
+              </button>
+            );
+          })}
+          <button className="pages" onClick={goToNextPage}>
+            {">>"}
+          </button>
+        </div>
       )}
     </section>
   );
