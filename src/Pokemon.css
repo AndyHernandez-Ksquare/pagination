@@ -14,6 +14,10 @@ span {
   font-size: 10px;
 }
 
+figure {
+  margin: 0;
+}
+
 .nameAndOrder {
   text-align: left;
   margin-left: 4px;
@@ -32,12 +36,34 @@ span {
   flex-direction: column;
 }
 
-figure {
-  margin: 0;
+.orderAndSpriteChange {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spriteToggle {
+  border-radius: 5px;
+  border: none;
+  /* background-color: black;
+  color: white; */
+}
+
+.spriteToggle:hover {
+  cursor: pointer;
+}
+.front_shiny {
+  background-color: #eed542;
 }
 
 /* Spans */
-
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+}
 li {
   border-radius: 5px;
   padding: 3px 16px;
