@@ -8,11 +8,20 @@ type Props = {
 };
 
 const Pokemon = ({ url }: Props) => {
-  const { order, sprite, types, generation, height, weight, name } =
-    useFetchPokemonDetails(url);
+  const {
+    order,
+    sprite,
+    types,
+    generation,
+    height,
+    weight,
+    name,
+    toggleSprite,
+  } = useFetchPokemonDetails(url);
 
   return (
     <section className={`pokemonContainer ${types[0]} ${types[0]}Card`}>
+      <button onClick={toggleSprite}></button>
       <section className="nameAndOrder">
         <h6 style={{ margin: 0 }}>#{order}</h6>
         <h5>{name}</h5>
