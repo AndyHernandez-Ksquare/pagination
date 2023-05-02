@@ -32,7 +32,6 @@ function App() {
 
   return (
     <section className="App">
-      <button></button>
       <SearchBarAndTypeSelect
         types={types}
         selectedType={selectedType}
