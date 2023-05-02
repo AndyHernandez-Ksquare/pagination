@@ -46,6 +46,7 @@ const useFetchPokemonDetails = (URL: string, useSearchBarValue?: string) => {
     height,
     weight,
     name,
+    spriteType,
     toggleSprite,
   };
 };

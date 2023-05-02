@@ -16,14 +16,22 @@ const Pokemon = ({ url }: Props) => {
     height,
     weight,
     name,
+    spriteType,
     toggleSprite,
   } = useFetchPokemonDetails(url);
 
   return (
     <section className={`pokemonContainer ${types[0]} ${types[0]}Card`}>
-      <button onClick={toggleSprite}></button>
       <section className="nameAndOrder">
-        <h6 style={{ margin: 0 }}>#{order}</h6>
+        <section className="orderAndSpriteChange">
+          <h6 style={{ margin: 0 }}>#{order}</h6>{" "}
+          <button
+            className={`spriteToggle ${spriteType}`}
+            onClick={toggleSprite}
+          >
+            {spriteType === "front_default" ? "Shiny" : "Default"}
+          </button>
+        </section>
         <h5>{name}</h5>
       </section>
       <PokemonTypes types={types} />

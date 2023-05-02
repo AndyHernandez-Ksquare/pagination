@@ -5,15 +5,7 @@ type Props = { types: string[] };
 
 const PokemonTypes = ({ types }: Props) => {
   return (
-    <ul
-      style={{
-        padding: 0,
-        margin: 0,
-        listStyleType: "none",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <ul>
       {types.map((value) => (
         <li className={`${value}`} key={value}>
           {value}
