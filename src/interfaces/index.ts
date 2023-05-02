@@ -19,6 +19,7 @@ export interface IPokemonDetails {
   order: number;
   sprites: {
     front_default: string;
+    front_shiny: string;
     versions: {};
   };
   forms: { name: string }[];

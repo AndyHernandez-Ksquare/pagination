@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { IPokemonDetails } from "../interfaces";
 
+type SpriteType = "front_default" | "front_shiny";
+
 const useFetchPokemonDetails = (URL: string, useSearchBarValue?: string) => {
   const [order, setOrder] = useState(0);
   const [sprite, setSprite] = useState("");
@@ -9,6 +11,7 @@ const useFetchPokemonDetails = (URL: string, useSearchBarValue?: string) => {
   const [height, setHeight] = useState<number>();
   const [weight, setWeight] = useState<number>();
   const [name, setName] = useState<string>();
+  const [spriteType, setSpriteType] = useState<SpriteType>("front_default");
 
   useEffect(() => {
     const fn = async () => {
@@ -16,7 +19,7 @@ const useFetchPokemonDetails = (URL: string, useSearchBarValue?: string) => {
       const data: IPokemonDetails = await req.json();
 
       setOrder(data.order);
-      setSprite(data.sprites.front_default);
+      setSprite(data.sprites[spriteType]);
       const originalData = data.types;
       const newData = originalData.map(({ type }) => type.name);
       setTypes(newData);
@@ -27,9 +30,24 @@ const useFetchPokemonDetails = (URL: string, useSearchBarValue?: string) => {
       setName(data.forms[0].name);
     };
     fn().catch(console.error);
-  }, [URL]);
+  }, [URL, spriteType]);
 
-  return { order, sprite, types, generation, height, weight, name };
+  const toggleSprite = () => {
+    setSpriteType(
+      spriteType === "front_default" ? "front_shiny" : "front_default"
+    );
+  };
+
+  return {
+    order,
+    sprite,
+    types,
+    generation,
+    height,
+    weight,
+    name,
+    toggleSprite,
+  };
 };
 
 export default useFetchPokemonDetails;
