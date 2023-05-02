@@ -20,7 +20,7 @@ const Pagination = ({
   return (
     <section>
       {totalPages! > 1 && (
-        <div className="pagination">
+        <section className="pagination">
           <button className="pages" onClick={goToPreviousPage}>
             {"<<"}
           </button>
@@ -42,7 +42,7 @@ const Pagination = ({
           <button className="pages" onClick={goToNextPage}>
             {">>"}
           </button>
-        </div>
+        </section>
       )}
     </section>
   );
